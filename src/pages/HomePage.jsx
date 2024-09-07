@@ -1,11 +1,37 @@
 import '../assets/css/HomePage.css'
 import {ChatIcon, HistoryIcon, MoreIcon, PlusIcon, SendIcon} from "../util/Icons.jsx";
 import {useState} from "react";
+import {GoogleGenerativeAI} from "@google/generative-ai";
 
 const HomePage = () => {
 
-    const [sendMessage, setSendMessage] = useState(["hii", "hello", "how are you"])
-    const [receivedMessage, setReceivedMessage] = useState(["hii", "hello", "how are you"])
+    const [sendMessage, setSendMessage] = useState([])
+    const [receivedMessage, setReceivedMessage] = useState([])
+    const [message, setMessage] = useState("")
+
+    const generateMessage = () => {
+        const GEMINI_API_KEY = "AIzaSyAb8vSABhdR47nFAxS-TmMd0gPZsyAhtVA";
+        const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+        const model = genAI.getGenerativeModel({model: "gemini-1.5-flash"});
+
+        generateStory()
+
+        async function generateStory() {
+            try {
+                const result = await model.generateContent(message);
+                setReceivedMessage([...receivedMessage, result.response.text()])
+            } catch (error) {
+                console.error("Error generating content:", error);
+            }
+        }
+
+    }
+
+    const handelSendMessage = () => {
+        setSendMessage([...sendMessage, message])
+        setMessage("")
+        generateMessage()
+    }
 
     return (
         <>
@@ -37,7 +63,7 @@ const HomePage = () => {
 
                     <div className="chat d-flex flex-column">
                         {
-                            receivedMessage && (
+                            sendMessage && receivedMessage && (
                                 receivedMessage.map((message,index) => {
                                     return(
                                         <>
@@ -55,8 +81,13 @@ const HomePage = () => {
                     </div>
 
                     <div className="searchBar w-100 bg-white d-flex p-3 rounded-4 bottom-0 align-items-center mt-4">
-                        <input type="text" placeholder={"Search"} className={"w-100 bg-white border-0 me-2" }/>
-                        <SendIcon/>
+                        <input type="text" placeholder={"Search"} className={"w-100 bg-white border-0 me-2" }
+                               onChange={(e) => setMessage(e.target.value)}
+                                 value={message}
+                        />
+                        <div onClick={handelSendMessage}>
+                            <SendIcon/>
+                        </div>
                     </div>
 
                 </div>
