@@ -1,0 +1,70 @@
+#HomePage{
+    height: 100vh;
+    background-image: url("src/assets/img/img.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#HomePage .sidebar{
+    background: #202020;
+    border-radius: 32px;
+    width: 27rem;
+}
+
+#HomePage .sidebar h1{
+    color: #FFF;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#HomePage .sidebar button{
+    border-radius: 18px;
+    background: rgba(74, 74, 74, 0.50);
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#HomePage .sidebar h2{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#HomePage .sidebar h2 svg{
+    width: 25px;
+    height: 25px;
+}
+
+#HomePage .sidebar .historyCard{
+    border-radius: 18px;
+    background: #4A4A4A;
+    padding: 17px 20px;
+    border-left: 10px solid #7CFF85;
+}
+
+#HomePage .sidebar .historyCard h4{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+#HomePage .sidebar .historyCard svg{
+    width: 25px;
+    height: 25px;
+}
+
+#HomePage .sidebar .historyCard h4 + svg{
+    width: 18px;
+    height: 20px;
+}
+
+#HomePage .sidebar .historyList{
+    height: 73%;
+    overflow: scroll;
+}
+
+#HomePage .sidebar .historyList::-webkit-scrollbar{
+    width: 0;
+}
