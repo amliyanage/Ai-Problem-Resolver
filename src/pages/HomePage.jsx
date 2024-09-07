@@ -1,11 +1,11 @@
 import '../assets/css/HomePage.css'
-import {ChatIcon, HistoryIcon, MoreIcon, PlusIcon} from "../util/Icons.jsx";
+import {ChatIcon, HistoryIcon, MoreIcon, PlusIcon, SendIcon} from "../util/Icons.jsx";
 
 const HomePage = () => {
 
     return (
         <>
-            <div id={"HomePage"} className={"w-100 p-5"}>
+            <div id={"HomePage"} className={"w-100 p-5 d-flex justify-content-between gap-5"}>
 
                 <div className="sidebar  h-100 p-5 d-none d-lg-block">
                     <h1 className={"mb-4"}>Chats</h1>
@@ -27,6 +27,19 @@ const HomePage = () => {
                             })
                         }
                     </div>
+                </div>
+
+                <div className="chatArea h-100">
+
+                    <div className="chat">
+
+                    </div>
+
+                    <div className="searchBar w-100 bg-white d-flex p-3 rounded-4 bottom-0 align-items-center mt-4">
+                        <input type="text" placeholder={"Search"} className={"w-100 bg-white border-0 me-2" }/>
+                        <SendIcon/>
+                    </div>
+
                 </div>
 
             </div>
