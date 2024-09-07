@@ -1,7 +1,11 @@
 import '../assets/css/HomePage.css'
 import {ChatIcon, HistoryIcon, MoreIcon, PlusIcon, SendIcon} from "../util/Icons.jsx";
+import {useState} from "react";
 
 const HomePage = () => {
+
+    const [sendMessage, setSendMessage] = useState(["hii", "hello", "how are you"])
+    const [receivedMessage, setReceivedMessage] = useState(["hii", "hello", "how are you"])
 
     return (
         <>
@@ -31,8 +35,23 @@ const HomePage = () => {
 
                 <div className="chatArea h-100">
 
-                    <div className="chat">
-
+                    <div className="chat d-flex flex-column">
+                        {
+                            receivedMessage && (
+                                receivedMessage.map((message,index) => {
+                                    return(
+                                        <>
+                                            <div>
+                                                <p className={"sendMsg float-end"}>{sendMessage[index]}</p>
+                                            </div>
+                                            <div>
+                                                <p className={"receiveMsg float-start"}>{receivedMessage[index]}</p>
+                                            </div>
+                                        </>
+                                    )
+                                })
+                            )
+                        }
                     </div>
 
                     <div className="searchBar w-100 bg-white d-flex p-3 rounded-4 bottom-0 align-items-center mt-4">

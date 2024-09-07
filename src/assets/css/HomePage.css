@@ -96,6 +96,20 @@
     width: 0;
 }
 
+#HomePage .chatArea .chat .sendMsg{
+    background: rgba(119, 255, 104, 0.29);
+    padding: 10px 20px;
+    border-radius: 18px 0 18px 18px;
+    color: #FFFFFF;
+}
+
+#HomePage .chat .receiveMsg{
+    background: #363636;
+    padding: 10px 20px;
+    border-radius: 0 18px 18px 18px;
+    color: #FFFFFF;
+}
+
 @media screen and (max-width: 991px){
 
     #HomePage .chatArea{
