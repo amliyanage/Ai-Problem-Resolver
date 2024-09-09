@@ -11,7 +11,7 @@ const HomePage = () => {
     const [history, setHistory] = useState([]);
 
     const generateMessage = async (msg) => {
-        const GEMINI_API_KEY = "AIzaSyAb8vSABhdR47nFAxS-TmMd0gPZsyAhtVA";
+        const GEMINI_API_KEY = "Enter your API key here";
         const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
