@@ -2,6 +2,8 @@
 
 This template provides a minimal setup for a chat application using React and Google Generative AI, integrated with Vite for fast builds and hot module replacement (HMR).
 
+[![Watch Video](src/assets/img/img_1.png)](src/assets/img/finalView.mp4)
+
 ## Features
 
 - **Real-time Messaging**: Interact with Google Generative AI to receive responses.
